@@ -111,7 +111,7 @@ const CreatePost = () => {
           </button>
         </div>
         {isError && (
-          <div className="text-red-500">
+          <div className="text-red-300">
             {error.message || "Something went wrong"}
           </div>
         )}
