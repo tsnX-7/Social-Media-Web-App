@@ -69,7 +69,7 @@ export const commentOnPost = async (req, res) => {
     const { text } = req.body;
     const postId = req.params.id;
     const userId = req.user._id;
-    console.log(text, postId);
+
     if (!text) {
       return res.status(400).json({ error: "Text field is required" });
     }
@@ -85,7 +85,9 @@ export const commentOnPost = async (req, res) => {
     };
     post.comments.push(comment);
     await post.save();
-    res.status(200).json(post);
+
+    const updatedComments = post.comments;
+    res.status(200).json(updatedComments);
   } catch (error) {
     console.log("Error in comment post controller", error.message);
     res.status(500).json({ error: "Internal Server Error @ comment post" });
