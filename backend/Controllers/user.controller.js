@@ -148,7 +148,7 @@ export const updateUser = async (req, res) => {
     user.email = email || user.email;
     user.bio = bio || user.bio;
     user.link = link || user.link;
-
+    console.log(user);
     user = await user.save();
     user.password = null;
     return res.status(200).json(user);
