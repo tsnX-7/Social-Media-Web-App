@@ -22,10 +22,13 @@ const ProfilePage = () => {
   const [coverImg, setCoverImg] = useState(null);
   const [profileImg, setProfileImg] = useState(null);
   const [feedType, setFeedType] = useState("posts");
+  const { updateProfile, isUpdatingProfile } = useUpdateProfile();
   const coverImgRef = useRef(null);
   const profileImgRef = useRef(null);
-
   const { username } = useParams();
+  const { data: authUser } = useQuery({ queryKey: ["authUser"] });
+  const { follow, isPending } = useFollow();
+
   const {
     data: user,
     isLoading,
@@ -46,14 +49,12 @@ const ProfilePage = () => {
       }
     },
   });
-  const { updateProfile, isUpdatingProfile } = useUpdateProfile();
-  const { data: authUser } = useQuery({ queryKey: ["authUser"] });
+  
+  
   const isMyProfile = authUser._id === user?._id;
-
-  const { follow, isPending } = useFollow();
   const isFollowing = authUser?.following.includes(user?._id);
-
   const memberSinceDate = formatMemberSinceDate(user?.createdAt);
+  
   useEffect(() => {
     refetch();
   }, [username, refetch]);
