@@ -18,7 +18,6 @@ The Social Media Web App is a full-stack web application built using the MERN (M
 ## Technologies Used
 
 - **Frontend**:
-
   - React
   - React Router DOM
   - React Query
@@ -80,17 +79,61 @@ cd twitter-clone
 ### Backend
 
 - **Controllers**: Contains the logic for handling requests and responses.
+  - `auth.controller.js`: Handles user authentication (login, signup, logout).
+  - `post.controller.js`: Manages post-related operations (create, delete, like, unlike).
+  - `user.controller.js`: Manages user-related operations (profile, follow, unfollow).
+  - `notification.controller.js`: Handles notifications (fetch, mark as read).
+  - `comment.controller.js`: Manages comment-related operations (add, delete).
+
 - **Models**: Defines the MongoDB schemas and models.
+  - `user.model.js`: Defines the user schema.
+  - `post.model.js`: Defines the post schema.
+  - `notification.model.js`: Defines the notification schema.
+
 - **Routes**: Defines the API endpoints and routes.
+  - `auth.route.js`: Routes for authentication.
+  - `post.route.js`: Routes for posts.
+  - `user.route.js`: Routes for user operations.
+  - `notification.route.js`: Routes for notifications.
+
 - **Middleware**: Contains middleware functions for authentication and other purposes.
+  - `auth.middleware.js`: Middleware for verifying JWT tokens.
+  - `error.middleware.js`: Middleware for handling errors.
+
 - **Utils**: Utility functions and helpers.
+  - `generateToken.js`: Utility for generating JWT tokens.
+  - `cloudinary.js`: Utility for handling Cloudinary operations.
+  - `email.js`: Utility for sending emails.
 
 ### Frontend
 
 - **Components**: Reusable React components.
+  - `Post.jsx`: Component for displaying a post.
+  - `Sidebar.jsx`: Component for the sidebar navigation.
+  - `Navbar.jsx`: Component for the top navigation bar.
+  - `ProfileCard.jsx`: Component for displaying user profile information.
+  - `NotificationList.jsx`: Component for displaying notifications.
+  - `Comment.jsx`: Component for displaying a comment.
+  - `FollowButton.jsx`: Component for follow/unfollow functionality.
+  - `LikeButton.jsx`: Component for like/unlike functionality.
+  - `PostForm.jsx`: Component for creating a new post.
+  - `UserList.jsx`: Component for displaying a list of users.
+
 - **Pages**: React components representing different pages of the application.
+  - `HomePage.jsx`: Home page component.
+  - `ProfilePage.jsx`: Profile page component.
+  - `LoginPage.jsx`: Login page component.
+  - `SignupPage.jsx`: Signup page component.
+  - `NotificationsPage.jsx`: Notifications page component.
+
 - **Hooks**: Custom React hooks for data fetching and state management.
+  - `useAuth.js`: Hook for authentication.
+  - `useFollow.js`: Hook for following users.
+  - `usePosts.js`: Hook for fetching posts.
+
 - **Styles**: CSS and Tailwind CSS styles.
+  - `index.css`: Global styles.
+  - `tailwind.css`: Tailwind CSS configuration.
 
 ## Contributing
 
